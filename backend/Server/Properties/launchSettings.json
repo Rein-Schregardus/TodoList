@@ -1,0 +1,27 @@
+{
+    "profiles": {
+        "Dotnet Run": {
+            "commandName": "Project",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "dotnetRunMessages": true,
+            "applicationUrl": "https://localhost:7200;http://localhost:5073"
+        },
+        "Containerized": {
+            "commandName": "Executable",
+            "executablePath": "powershell",
+            "commandLineArgs": "docker compose up --build",
+            "workingDirectory": "$(ProjectDir)",
+            "dotnetRunMessages": true
+        },
+        "Containerized With Watch": {
+            "commandName": "Executable",
+            "executablePath": "powershell",
+            "commandLineArgs": "docker compose up --watch",
+            "workingDirectory": "$(ProjectDir)",
+            "dotnetRunMessages": true
+        }
+    },
+  "$schema": "https://json.schemastore.org/launchsettings.json"
+}

@@ -1,0 +1,16 @@
+﻿services:
+  server:
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Development  
+    
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: server
+    ports:
+      - "7200:8080"
+      - "5073:8081"
+    develop:
+      watch:
+        - path: .
+          action: rebuild 
