@@ -1,6 +1,6 @@
 {
     "profiles": {
-        "UnContainered": {
+        "Dotnet Run": {
             "commandName": "Project",
             "environmentVariables": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
@@ -15,7 +15,7 @@
             "workingDirectory": "$(ProjectDir)",
             "dotnetRunMessages": true
         },
-        "WatchfullContainerized": {
+        "Containerized With Watch": {
             "commandName": "Executable",
             "executablePath": "powershell",
             "commandLineArgs": "docker compose up --watch",
