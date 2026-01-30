@@ -20,4 +20,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+Console.WriteLine("hello program");
+
 app.Run();
