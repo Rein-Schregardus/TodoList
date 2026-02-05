@@ -1,7 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
 using Server;
-
-const string DBCONNECTION = "";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,4 +34,15 @@ app.MapControllers();
 app.UseDeveloperExceptionPage();
 
 app.MapSwagger();
+
+
+
+using (var scope = app.Services.CreateScope())
+{
+    AppDbContext context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    if (context == null)
+        throw new Exception("AppDbContext is null");
+    context.Database.Migrate();
+}
+
 app.Run();
