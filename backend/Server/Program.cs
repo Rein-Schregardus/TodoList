@@ -1,8 +1,12 @@
 using Microsoft.OpenApi;
+using Server;
+
+const string DBCONNECTION = "";
 
 var builder = WebApplication.CreateBuilder(args);
 
 // register services
+builder.Services.AddDbContext<AppDbContext>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
