@@ -2,7 +2,6 @@
   server:
     environment:
     - ASPNETCORE_ENVIRONMENT=Development  
-    
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,3 +13,29 @@
       watch:
         - path: .
           action: rebuild 
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      PGUSER : postgres
+      POSTGRES_PASSWORD : "postgres"
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+    ports:
+    - "7201:5432"
+    expose:
+    - "7201"
+    
+    
+
+volumes:
+  pgdata:
