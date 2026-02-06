@@ -31,9 +31,7 @@
       timeout: 5s
       retries: 10
     ports:
-    - "7201:5432"
-    expose:
-    - "7201"
+    - "5432:5432"
     
     
 

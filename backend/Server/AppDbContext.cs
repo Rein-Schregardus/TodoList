@@ -16,7 +16,7 @@ namespace Server
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql(
-                @"Host=db;Port=5432;Username=postgres;Password=postgres;Database=postgres");
+                @"Host=localhost;Port=5432;Username=postgres;Password=postgres;Database=postgres");
         }
     }
 }
